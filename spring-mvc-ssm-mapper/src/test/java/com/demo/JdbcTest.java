@@ -8,7 +8,7 @@ import java.sql.*;
  * Created by lwx on 2019/5/11.
  */
 public class JdbcTest {
-    //@Test
+    @Test
     public void testJdbc(){
         String driver="com.mysql.jdbc.Driver";   //获取mysql数据库的驱动类
         String url="jdbc:mysql://localhost:3306/test"; //连接数据库（kucun是数据库名）
