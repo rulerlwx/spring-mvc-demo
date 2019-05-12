@@ -3,6 +3,7 @@ package com.demo.service.impl;
 import com.demo.dao.UserMapper;
 import com.demo.domain.User;
 import com.demo.service.UserService;
+import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,9 +14,9 @@ import org.springframework.stereotype.Service;
 public class UserServiceImpl  implements UserService {
 
     @Autowired
-    UserMapper userMapper;
+    SqlSessionTemplate sessionTemplate;
 
     public Integer insertUser(User user) {
-        return userMapper.insertUser(user);
+        return sessionTemplate.insert("com.demo.dao.UserMapper.insertUser", user);
     }
 }

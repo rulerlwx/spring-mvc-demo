@@ -27,8 +27,13 @@
           p:mapperLocations="classpath*:mapper/**/*.xml">
     </bean>
 
-    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="sqlSessionFactoryBeanName" value="sessionFactory"/>
-        <property name="basePackage" value="com.demo.dao"/>
+    <!--mapper接口方式的配置-->
+    <!--<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">-->
+        <!--<property name="sqlSessionFactoryBeanName" value="sessionFactory"/>-->
+        <!--<property name="basePackage" value="com.demo.dao"/>-->
+    <!--</bean>-->
+
+    <bean id="sessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
+        <constructor-arg index="0" ref="sessionFactory"/>
     </bean>
 </beans>
