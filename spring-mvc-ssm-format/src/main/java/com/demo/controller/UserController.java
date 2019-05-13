@@ -34,22 +34,28 @@ public class UserController {
     /**
      * 返回JSON数据，TODO...
      *
-     * 页面 406
+     * 页面 406 —— 需要添加 jackson 依赖
      *
-     *     @DateTimeFormat(pattern = "yyyy-MM-dd")
-            private Date birthday;
-            只对存入时格式化吗，取出时的格式却是 wangwu,Sun May 12 00:00:00 GMT+08:00 2019   ????
+     * 如下注解使用：
+     * @DateTimeFormat(pattern = "yyyy-MM-dd")
+     *  private Date birthday;
+     *
+     * 只对存入时格式化吗，取出时的格式却是 wangwu,Sun May 12 00:00:00 GMT+08:00 2019   ????
+     * 答：存入时是springmvc在做工作，从数据库中取出是mybatis在做，不相同。可以使用@JsonFormat
      */
-    //@ResponseBody
+    @ResponseBody
     @RequestMapping("/getUser")
-    public String getUser(String name, Model model){
+    public List<User> getUser(String name, Model model){
         List<User> userList = userService.getUser(name);
-        System.out.println(userList.get(0).getName()+","+userList.get(0).getBirthday());
-        model.addAttribute("userList", userList);
-        return "userInfo";
+
+        for(User user: userList) {
+            System.out.println(user.getName()+","+user.getBirthday());
+        }
+
+        return userList;
     }
 
-    //@ResponseBody
+    @ResponseBody
     @RequestMapping("/listUsers")
     public List<User> listUsers(){
         return userService.listUsers();
