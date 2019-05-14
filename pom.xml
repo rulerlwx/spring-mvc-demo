@@ -12,6 +12,8 @@
         <module>spring-mvc-validate</module>
         <module>spring-mvc-ssm-mapper</module>
         <module>spring-mvc-ssm-template</module>
+        <module>spring-mvc-ssm-format</module>
+        <module>spring-mvc-ssm-fileupload</module>
     </modules>
 
 </project>

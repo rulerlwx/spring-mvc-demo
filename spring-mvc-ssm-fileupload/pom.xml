@@ -10,15 +10,11 @@
     <modelVersion>4.0.0</modelVersion>
     <packaging>war</packaging>
 
-    <artifactId>spring-mvc-ssm-mapper</artifactId>
+    <artifactId>spring-mvc-ssm-fileupload</artifactId>
+
 
     <properties>
         <project.build.sourceEncoding>UTF8</project.build.sourceEncoding>
-
-        <!--旧版本ssm-->
-        <!--<spring.version>4.0.8.RELEASE</spring.version>-->
-        <!--<mybatis.version>3.2.4</mybatis.version>-->
-        <!--<mybatis-spring.version>1.2.2</mybatis-spring.version>-->
 
         <!--spring整合mybatis时版本要求：http://www.mybatis.org/spring/zh/index.html-->
         <spring.version>4.3.23.RELEASE</spring.version>
@@ -27,6 +23,15 @@
 
         <slf4j.version>1.6.6</slf4j.version>
         <log4j.version>1.2.12</log4j.version>
+        <mysql.connector.java.version>5.1.19</mysql.connector.java.version>
+        <mchage.c3p0.version>0.9.5.4</mchage.c3p0.version>
+        <gson.version>2.8.5</gson.version>
+
+        <junit.version>4.11</junit.version>
+        <servlet.version>3.1.0</servlet.version>
+
+        <jackson.version>2.9.8</jackson.version>
+        <commons.fileupload.version>1.4</commons.fileupload.version>
     </properties>
 
     <dependencies>
@@ -109,30 +114,62 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.11</version>
+            <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
 
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.19</version>
+            <version>${mysql.connector.java.version}</version>
         </dependency>
         <dependency>
-            <groupId>c3p0</groupId>
+            <groupId>com.mchange</groupId>
             <artifactId>c3p0</artifactId>
-            <version>0.9.1.2</version>
+            <version>${mchage.c3p0.version}</version>
         </dependency>
 
-        <!--Controller Test-->
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
-            <version>3.1.0</version>
+            <version>${servlet.version}</version>
         </dependency>
+
+        <!--gson-->
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>${gson.version}</version>
+        </dependency>
+
+        <!--jackson-->
+        <!--自动包含了 jackson-core/jackson-databind/jackson-annotation-->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+
+        <!--apache commons-fileupload-->
+        <dependency>
+            <groupId>commons-fileupload</groupId>
+            <artifactId>commons-fileupload</artifactId>
+            <version>${commons.fileupload.version}</version>
+        </dependency>
+
     </dependencies>
     <build>
         <plugins>
+            <!--指定编译的Java版本-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+            <!--测试相关-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
