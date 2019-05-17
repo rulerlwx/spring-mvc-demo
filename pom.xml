@@ -17,6 +17,7 @@
         <module>spring-mvc-ssm-exception</module>
         <module>spring-mvc-restful</module>
         <module>spring-mvc-i18n</module>
+        <module>spring-mvc-spring-data-redis</module>
     </modules>
 
 </project>
