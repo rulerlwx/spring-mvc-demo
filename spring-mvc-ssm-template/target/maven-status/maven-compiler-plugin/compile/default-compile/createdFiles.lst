@@ -1,5 +1,0 @@
-com\demo\controller\UserController.class
-com\demo\dao\UserMapper.class
-com\demo\domain\User.class
-com\demo\service\UserService.class
-com\demo\service\impl\UserServiceImpl.class

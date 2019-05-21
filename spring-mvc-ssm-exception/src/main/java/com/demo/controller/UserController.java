@@ -32,8 +32,6 @@ public class UserController {
      *
      * TODO...
      *
-     * @param ex
-     * @return
      */
     @ResponseBody
     @ExceptionHandler({Exception.class})
@@ -42,5 +40,4 @@ public class UserController {
         String message = ex.getMessage();
         return "error";
     }
-
 }
