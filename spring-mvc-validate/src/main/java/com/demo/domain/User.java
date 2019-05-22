@@ -24,7 +24,7 @@ public class User {
      *
      */
     @NotNull
-    @Range(max = 0, min = 150)
+    @Range(max = 150, min = 0)
     @Digits(integer = 3, fraction =0 )
     private Integer age;
 

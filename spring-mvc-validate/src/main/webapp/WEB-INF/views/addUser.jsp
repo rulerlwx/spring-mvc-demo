@@ -11,10 +11,14 @@
     <title>测试</title>
 </head>
 <body>
-<form action="/user/addUser" method="post">
+<form action="/user/saveUser" method="post">
     用户名<input type="text" name="name"><br/>
     年龄<input type="text" name="age"><br/>
-    <input type="submit">
+    <input type="submit"><br/>
+
+
+    ${user}<br/>
+    ${user.name}<br/>
 </form>
 </body>
 </html>
